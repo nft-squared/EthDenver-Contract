@@ -1,6 +1,6 @@
 import "@nomiclabs/hardhat-ethers";
 import "@openzeppelin/hardhat-upgrades";
-import { ethers } from "ethers";
+import { BigNumberish, ethers } from "ethers";
 import { deployF, deployProxyF } from "./deployer";
 //import { deploy, deployProxy, upgradeProxy, upgradeProxyF } from "./deploy";
 
@@ -70,12 +70,9 @@ export class App {
     }
 
     async init() {
-        await this.AppRegistry.register(this.APPDemo.address);
         const pools = Object.values(this.IPPoolShadow).map(ippool=>ippool.address);
         pools.push(this.IPPoolLocal.address);
         await this.NFT2.addIPPool(pools);
-
-        await this.APPDemo.transferOwnership(this.NFT2.address);
         await this.Licenser.transferOwnership(this.NFT2.address);
     }
 
@@ -84,8 +81,14 @@ export class App {
         await this.deployAppRegistry()
         await this.deployLicenser()
         await this.deployNFT2()
-        await this.deployAPPDemo()
         await this.init()
+    }
+
+    async MockNFTMint(token:MockERC721, to:string):Promise<ethers.BigNumberish> {
+        const tx = await token.mint(to)
+        const receipt = await tx.wait()
+        const TransferEvent = receipt.events!.find(e=>e.event == 'Transfer' && e.address == token.address)
+        return TransferEvent!.args!.tokenId;
     }
 
     signers() {

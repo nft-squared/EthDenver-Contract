@@ -13,7 +13,7 @@ interface IAPP is IERC721 {
         uint256 tokenId,
         address to,
         bytes calldata data
-    ) external returns (uint256 derivativeTokenId);
+    ) external payable returns (uint256 derivativeTokenId);
 
     function setURI(uint256 tokenId, string calldata uri) external;
 }
@@ -40,7 +40,7 @@ contract APPDemo is IAPP, ERC721Upgradeable, OwnableUpgradeable {
         uint256 tokenId,
         address to,
         bytes calldata data
-    ) external override onlyNFT2 returns (uint256 derivativeTokenId) {
+    ) external payable override onlyNFT2 returns (uint256 derivativeTokenId) {
         ippool;
         token;
         tokenId;
@@ -57,7 +57,7 @@ contract APPDemo is IAPP, ERC721Upgradeable, OwnableUpgradeable {
     {
         require(ERC721Upgradeable._exists(tokenId), "nonexistent token");
         string memory oldURI = _tokenURI[tokenId];
-        require(bytes(oldURI).length == 0, "uri not emtpy");
+        require(bytes(oldURI).length == 0, "APP:uri not emtpy");
         _tokenURI[tokenId] = uri;
     }
 

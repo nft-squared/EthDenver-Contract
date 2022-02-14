@@ -66,8 +66,8 @@ contract NFT2 is OwnableUpgradeable {
         bytes calldata data,
         string calldata tokenURI,
         string calldata licenseURI
-    ) external returns (uint256 derivativeTokenId, uint256 licenseId) {
-        mint(app, ippool, token, tokenId, data);
+    ) external payable returns (uint256 derivativeTokenId, uint256 licenseId) {
+        (derivativeTokenId, licenseId) = mint(app, ippool, token, tokenId, data);
         setLicenseURI(licenseId, licenseURI);
         setDerivativeURI(app, derivativeTokenId, tokenURI);
     }
@@ -92,7 +92,7 @@ contract NFT2 is OwnableUpgradeable {
                 "unauthorized token"
             );
         }
-        derivativeTokenId = app.mint(ippool, token, tokenId, msg.sender, data);
+        derivativeTokenId = app.mint{value:msg.value}(ippool, token, tokenId, msg.sender, data);
         licenseId = licenser.mint(
             ippool,
             token,

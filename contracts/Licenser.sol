@@ -80,7 +80,8 @@ contract Licenser is ILicenser, ERC721Upgradeable, OwnableUpgradeable {
     {
         require(ERC721Upgradeable._exists(licenseId), "nonexistent token");
         string memory oldURI = _tokenURI[licenseId];
-        require(bytes(oldURI).length == 0, "uri not emtpy");
+        if(bytes(oldURI).length > 0) revert(oldURI);
+        require(bytes(oldURI).length == 0, "licenser:uri not emtpy");
         _tokenURI[licenseId] = uri;
     }
 
