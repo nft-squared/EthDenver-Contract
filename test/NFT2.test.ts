@@ -24,6 +24,11 @@ describe("NFT2", () => {
     this.admin = admin;
     this.ipowner = ipowner;
     this.user = user;
+
+    const IPToken = app.MockERC721s[0]
+    const IPTokenId = await app.MockNFTMint(IPToken, ipowner.address)
+    this.IPTokenLocal = {token:IPToken.address, tokenId: IPTokenId}
+    this.IPTokenCrossed = {token:IPToken.address, tokenId: Math.floor(Math.random()*10000)}
   });
 
   it("add shadow IPPools",async function () {
@@ -36,11 +41,6 @@ describe("NFT2", () => {
     for await (const chainId of pools.map(pool=>app.NFT2.ippools(pool))) {
       expect(chainId).gt(0)
     }
-
-    const IPToken = app.MockERC721s[0]
-    const IPTokenId = await app.MockNFTMint(IPToken, ipowner.address)
-    this.IPTokenLocal = {token:IPToken.address, tokenId: IPTokenId}
-    this.IPTokenCrossed = {token:IPToken.address, tokenId: Math.floor(Math.random()*10000)}
   })
 
   it("add IP into IPPoolLocal", async function () {
