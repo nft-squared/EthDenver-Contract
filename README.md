@@ -8,19 +8,36 @@ Core smart contract of NFT Squared platform.
 
 ### 1. start a local node
 `npx hardhat node`
+> Skip this step if you want to connect to a online network like Ethereum, Ropsten.
 
-### 2. start a hardhat console and connect to a node
-`npx hardhat --network=$NETWORK console`
-> Connect to a local node such as ganache-cli, hardhat-node, NETWORK can be 'develop'.
+### 2. import deployer account
+`yarn toKeystore prikey passwd`
 
-### 3. deploy
-In hardhat console:
+### 3. init environment variable
 ```
-const app = new hre.APP();
-await app.deployAll();
+export NETENV=test # test or main
+export NETWORK=hmy_test
+export PASSWD=123456 # passwd of keystore
 ```
-The source code for `hre.APP` is in `helps/app.ts`.
 
-### 4. interact with deployed contracts
-In hardhat console:
+### 4. deploy
+1. deploy mock NFT IP: `yarn tags Mocks`
+2. deploy core contracts: `yarn tags Main`
+3. deploy IPPoolShadow: `yarn tags IPPoolShadow`
+4. deploy Demo App: `yarn tags DemoApp`
+
+### 5. interact with deployed contracts
+1. Start a hardhat console and connect to a node
+`yarn console`
+2. In hardhat console:
 `await app.Licenser.name()`
+
+## Keystore
+### import a account
+`yarn toKeystore prikey passwd`
+### export a account
+`yarn fromKeystore keystorePath passwd`
+
+## Contract Address
+### testnet
+[Contract Address](/record_test.json)

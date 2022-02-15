@@ -66,7 +66,7 @@ task("toKeystore", "encrypt private key and save to keystore")
     });
 
 task("fromKeystore", "decrypt a keystore file")
-    .addPositionalParam("keyfile", "keystroe file path")
+    .addPositionalParam("keyfile", "keystore file path")
     .addPositionalParam("passwd", "password to decrypto")
     .setAction(async function ({ keyfile, passwd }) {
       const jsonKeystore = fs.readFileSync(keyfile)
