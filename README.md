@@ -1,4 +1,4 @@
-# V1-core
+# NFT2 Core
 Core smart contract of NFT Squared platform.
 
 ## Installation
