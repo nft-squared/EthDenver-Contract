@@ -1,5 +1,5 @@
 import { ethers, upgrades, waffle } from "hardhat";
-import { BigNumberish, utils, Wallet, BigNumber, constants } from "ethers";
+//import { BigNumberish, utils, Wallet, BigNumber, constants } from "ethers";
 import chai from "chai";
 import { solidity } from "ethereum-waffle";
 //import "@openzeppelin/test-helpers";
@@ -25,7 +25,7 @@ describe("NFT2", () => {
     this.ipowner = ipowner;
     this.user = user;
 
-    const IPToken = app.MockERC721s[0]
+    const IPToken = Object.values(app.MockERC721)[0]
     const IPTokenId = await app.MockNFTMint(IPToken, ipowner.address)
     this.IPTokenLocal = {token:IPToken.address, tokenId: IPTokenId}
     this.IPTokenCrossed = {token:IPToken.address, tokenId: Math.floor(Math.random()*10000)}
@@ -37,7 +37,7 @@ describe("NFT2", () => {
     await app.deployIPPoolShadow([1666600000])
 
     const pools = Object.values(app.IPPoolShadow).map(ippool=>ippool.address);
-    await app.NFT2.addIPPool(pools);
+    await app.NFT2.addIPPools(pools);
     for await (const chainId of pools.map(pool=>app.NFT2.ippools(pool))) {
       expect(chainId).gt(0)
     }

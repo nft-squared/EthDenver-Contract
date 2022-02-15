@@ -1,6 +1,6 @@
 import "@nomiclabs/hardhat-ethers";
 import "@openzeppelin/hardhat-upgrades";
-import { BigNumberish, ethers } from "ethers";
+import { ethers } from "ethers";
 import { deployF, deployProxyF } from "./deployer";
 //import { deploy, deployProxy, upgradeProxy, upgradeProxyF } from "./deploy";
 
@@ -25,7 +25,7 @@ import {
 } from "../typechain"
 
 export class App {
-    MockERC721s: MockERC721[] = []
+    MockERC721:{[symbol:string]:MockERC721} = {} 
     IPPoolShadow:{[chainId:number]:IPPoolShadow} = {}
     IPPoolLocal!:IPPoolLocal
     APPDemo!:APPDemo
@@ -33,10 +33,18 @@ export class App {
     AppRegistry!:AppRegistry
     NFT2!:NFT2
 
+    constructor() {
+        const hre = require("hardhat");
+        const app = hre.app // init in hardhat.config.ts
+        if(app) {
+            Object.assign(this, app)
+        }
+    }
+
     async deployMock721s(symbols:string[]) {
         for(const symbol of symbols) {
-            const nftoken = await deployF(MockERC721__factory, [symbol, symbol]);
-            this.MockERC721s.push(nftoken);
+            const nftoken = await deployF(MockERC721__factory, [symbol, symbol], ['MockERC721', symbol]);
+            this.MockERC721[symbol] = nftoken;
         }
     }
 
@@ -51,7 +59,7 @@ export class App {
 
     async deployIPPoolShadow(chainIds:number[]) {
         for(let chainId of chainIds) {
-            const pool = await deployProxyF(IPPoolShadow__factory, [chainId]);
+            const pool = await deployProxyF(IPPoolShadow__factory, [chainId], ['IPPoolShadows', String(chainId)]);
             this.IPPoolShadow[chainId] = pool;
         }
     }
@@ -72,7 +80,7 @@ export class App {
     async init() {
         const pools = Object.values(this.IPPoolShadow).map(ippool=>ippool.address);
         pools.push(this.IPPoolLocal.address);
-        await this.NFT2.addIPPool(pools);
+        await this.NFT2.addIPPools(pools);
         await this.Licenser.transferOwnership(this.NFT2.address);
     }
 

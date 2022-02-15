@@ -110,3 +110,4 @@ typechain
 APP_*.ts
 .openzeppelin/*1337.json
 keystore
+.env*

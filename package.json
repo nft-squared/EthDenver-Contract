@@ -1,6 +1,9 @@
 {
   "scripts": {
-    "compile": "npx hardhat compile",
+    "toKeystore": "hardhat toKeystore",
+    "fromKeystore": "hardhat fromKeystore",
+    "compile": "hardhat compile",
+    "node": "hardhat node --no-deploy",
     "tags": "hardhat --network $NETWORK deploy --tags",
     "console": "hardhat --network $NETWORK console"
   },

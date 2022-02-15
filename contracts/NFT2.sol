@@ -39,7 +39,7 @@ contract NFT2 is OwnableUpgradeable {
         appRegistry = _appRegistry;
     }
 
-    function addIPPool(IPPool[] calldata _ippools) external onlyOwner {
+    function addIPPools(IPPool[] calldata _ippools) external onlyOwner {
         for(uint256 i = 0; i < _ippools.length; i++) {
             IPPool ippool = _ippools[i];
             uint256 chainId = ippool.chainId();
