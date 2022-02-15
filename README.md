@@ -40,4 +40,4 @@ export PASSWD=123456 # passwd of keystore
 
 ## Contract Address
 ### testnet
-[Contract Address](/record_test.json)
+[record_test.json](/record_test.json)
