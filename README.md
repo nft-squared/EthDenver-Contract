@@ -27,10 +27,10 @@ export PASSWD=123456 # passwd of keystore
 4. deploy Demo App: `yarn tags DemoApp`
 
 ### 5. interact with deployed contracts
-1. Start a hardhat console and connect to a node
+1. Start a hardhat console and connect to a node:
 `yarn console`
 2. In hardhat console:
-`await app.Licenser.name()`
+`await hre.app.Licenser.name()`
 
 ## Keystore
 ### import a account
