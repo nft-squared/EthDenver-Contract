@@ -18,7 +18,20 @@ abstract contract IPPool is OwnableUpgradeable {
         address operator,
         address tokenOwner
     );
-    mapping(bytes32 => address) public ips; // keccak256(chainId|token|tokenId) => tokenOwner
+    mapping(bytes32 => address) public ips; // keccak256(token|tokenId) => tokenOwner
+    struct IP {
+        address token;
+        uint256 tokenId;
+    }
+    IP[] public iplist;
+
+    function ipLength() external view returns(uint256) {
+        return iplist.length;
+    }
+
+    function allIP() external view returns(IP[] memory) {
+        return iplist;
+    }
 
     function ipKey(address token, uint256 tokenId)
         public
@@ -35,6 +48,7 @@ abstract contract IPPool is OwnableUpgradeable {
     ) internal {
         bytes32 key = ipKey(token, tokenId);
         ips[key] = owner;
+        iplist.push(IP(token, tokenId));
         emit IPAdded(token, tokenId, msg.sender, owner);
     }
 
