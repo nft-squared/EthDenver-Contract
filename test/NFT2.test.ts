@@ -36,7 +36,7 @@ describe("NFT2", () => {
     const [admin, ipowner, user] = [this.admin, this.ipowner, this.user] as SignerWithAddress[]
     await app.deployIPPoolShadow([1666600000])
 
-    const pools = Object.values(app.IPPoolShadow).map(ippool=>ippool.address);
+    const pools = Object.values(app.IPPoolShadows).map(ippool=>ippool.address);
     await app.NFT2.addIPPools(pools);
     for await (const chainId of pools.map(pool=>app.NFT2.ippools(pool))) {
       expect(chainId).gt(0)
@@ -57,7 +57,7 @@ describe("NFT2", () => {
     const [admin, ipowner, user] = [this.admin, this.ipowner, this.user] as SignerWithAddress[]
     
     const {token, tokenId} = this.IPTokenCrossed
-    const IPPoolShadow = Object.values(app.IPPoolShadow)[0]
+    const IPPoolShadow = Object.values(app.IPPoolShadows)[0]
     await IPPoolShadow.IPAdd(token, tokenId, ipowner.address)
     const owner = await IPPoolShadow.ownerOf(token, tokenId)
     expect(owner.registedOwner == ipowner.address && owner.realOwner == ipowner.address, "ip owner check").equal(true)
@@ -94,7 +94,7 @@ describe("NFT2", () => {
     const app = this.app as App
     const [admin, ipowner, user] = [this.admin, this.ipowner, this.user] as SignerWithAddress[]   
     const {token, tokenId} = this.IPTokenCrossed
-    const IPPoolShadow = Object.values(app.IPPoolShadow)[0]
+    const IPPoolShadow = Object.values(app.IPPoolShadows)[0]
     const tx = await app.NFT2.connect(user).mint(app.APPDemo.address, IPPoolShadow.address, token, tokenId, Buffer.alloc(0), "IPFS://TOKENURI", "IPFS://LICENSEURI")
     const receipt = await tx.wait()
     const MintEvent = receipt.events!.find(e=>e.event == 'Mint' && e.address == app.NFT2.address)

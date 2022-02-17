@@ -37,6 +37,11 @@ extendEnvironment(async (hre: any) => {
     if (hre.hardhatArguments.network == undefined) {
         return;
     }
+    let wait = (_:any)=>{}
+    hre.wait = new Promise((resolve)=>{
+        if(hre.app) resolve(hre.app)
+        wait = resolve
+    })
     hre.netenv = netenv.toLowerCase();
     hre.Record = `record_${hre.netenv}.json`;
     //hre.Chains = "chains_testnet.json";
@@ -49,6 +54,7 @@ extendEnvironment(async (hre: any) => {
         hre.AppFile = `APP_${hre.network.name}.ts`;
         const ContractLoad = require("./helps/load.js"); // reference compilation result
         hre.app = await ContractLoad();
+        wait(hre.app)
     }
 });
 

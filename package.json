@@ -5,7 +5,8 @@
     "compile": "hardhat compile",
     "node": "hardhat node --no-deploy",
     "tags": "hardhat --network $NETWORK deploy --tags",
-    "console": "hardhat --network $NETWORK console"
+    "console": "hardhat --network $NETWORK console",
+    "test": "hardhat test"
   },
   "dependencies": {
     "@nomiclabs/hardhat-ethers": "^2.0.4",

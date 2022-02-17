@@ -3,7 +3,7 @@ pragma solidity ^0.8.0;
 
 import "@openzeppelin/contracts-upgradeable/access/OwnableUpgradeable.sol";
 import { IERC721Upgradeable as IERC721 } from "@openzeppelin/contracts-upgradeable/token/ERC721/IERC721Upgradeable.sol";
-import "@openzeppelin/contracts-upgradeable/token/ERC721/ERC721Upgradeable.sol";
+import "@openzeppelin/contracts-upgradeable/token/ERC721/extensions/ERC721EnumerableUpgradeable.sol";
 import "./IPPool.sol";
 
 interface IAPP is IERC721 {
@@ -18,8 +18,7 @@ interface IAPP is IERC721 {
     function setURI(uint256 tokenId, string calldata uri) external;
 }
 /// @dev demo of Application/service
-contract APPDemo is IAPP, ERC721Upgradeable, OwnableUpgradeable {
-    uint256 public totalSupply;
+contract APPDemo is IAPP, ERC721EnumerableUpgradeable, OwnableUpgradeable {
     mapping(uint256 => string) _tokenURI;
     address public NFT2;
 
@@ -45,7 +44,7 @@ contract APPDemo is IAPP, ERC721Upgradeable, OwnableUpgradeable {
         token;
         tokenId;
         data;
-        derivativeTokenId = totalSupply++;
+        derivativeTokenId = totalSupply();
         ERC721Upgradeable._mint(to, derivativeTokenId);
     }
 

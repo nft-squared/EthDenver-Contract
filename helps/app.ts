@@ -26,7 +26,7 @@ import {
 
 export class App {
     MockERC721:{[symbol:string]:MockERC721} = {} 
-    IPPoolShadow:{[chainId:number]:IPPoolShadow} = {}
+    IPPoolShadows:{[chainId:number]:IPPoolShadow} = {}
     IPPoolLocal!:IPPoolLocal
     APPDemo!:APPDemo
     Licenser!:Licenser
@@ -60,7 +60,7 @@ export class App {
     async deployIPPoolShadow(chainIds:number[]) {
         for(let chainId of chainIds) {
             const pool = await deployProxyF(IPPoolShadow__factory, [chainId], ['IPPoolShadows', String(chainId)]);
-            this.IPPoolShadow[chainId] = pool;
+            this.IPPoolShadows[chainId] = pool;
         }
     }
 
@@ -78,7 +78,7 @@ export class App {
     }
 
     async init() {
-        const pools = Object.values(this.IPPoolShadow).map(ippool=>ippool.address);
+        const pools = Object.values(this.IPPoolShadows).map(ippool=>ippool.address);
         pools.push(this.IPPoolLocal.address);
         await this.NFT2.addIPPools(pools);
         await this.Licenser.transferOwnership(this.NFT2.address);
