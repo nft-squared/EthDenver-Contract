@@ -79,6 +79,36 @@
       "address": "0x0fBb0592370A0df11B9B05d81468003A8351fe43",
       "txHash": "0xd81fa48746269cdd1b34b12a3a4f80e39da7803d7bf0350f3ae9d49467cad570",
       "kind": "transparent"
+    },
+    {
+      "address": "0x1b67D1A96fA791B8f4Fa65003f1CA03A79227204",
+      "txHash": "0x03ae40ba07518aacba7c7e89e7ad13d94487b9a3e1242f6e9720ac1f076f6f59",
+      "kind": "transparent"
+    },
+    {
+      "address": "0x88a53AAA422ae6F404420C76a538c454b7CC1888",
+      "txHash": "0x6e451e8c75234b14199e4be3343947cf0a8196e39dcc787891fc30f70daa97ff",
+      "kind": "transparent"
+    },
+    {
+      "address": "0xC4E441575f3Cb4645CFA08E6C2c4ecd1894Af516",
+      "txHash": "0x2a379fb7e9380b8b499219fc9386c47c2965b84a90a9ca95de8bbebe519e6de7",
+      "kind": "transparent"
+    },
+    {
+      "address": "0x52AF543cEE279B83e431B166609d3b242E2cB168",
+      "txHash": "0xee4cf7f50df408b3ccdb021c03f5141e2b06dfb3a3bf302887e2f8693bb33d79",
+      "kind": "transparent"
+    },
+    {
+      "address": "0xBBD001238dfc8A2daD2315Dd868c3ae8EFaCD167",
+      "txHash": "0xe000eceb0f3c1c65f808c87c254f8595307be9cecb1506bf1cd74fb0cedf64ff",
+      "kind": "transparent"
+    },
+    {
+      "address": "0xd1A0700931D248841204f21e528Ed540f04C7879",
+      "txHash": "0x4e2673d7c9f6bd6d4ed0b36bae9c4cfa465bec07be8b73b3a4b912dacd0ef9d2",
+      "kind": "transparent"
     }
   ],
   "impls": {
@@ -1487,6 +1517,198 @@
           },
           "t_contract(AppRegistry)2298": {
             "label": "contract AppRegistry"
+          },
+          "t_array(t_uint256)49_storage": {
+            "label": "uint256[49]"
+          },
+          "t_array(t_uint256)50_storage": {
+            "label": "uint256[50]"
+          },
+          "t_bool": {
+            "label": "bool"
+          }
+        }
+      }
+    },
+    "c388fee8b2e3c33d0afbf229f3be71cb7e7f5ed91120f72b531ec98aaa51eef1": {
+      "address": "0x91ed4AbcbC651a5355508722eD5D399b7F79954E",
+      "txHash": "0x67c515923aef22bc45e1b5384d51bab24832eea18232776b4855467007c0e378",
+      "layout": {
+        "storage": [
+          {
+            "contract": "Initializable",
+            "label": "_initialized",
+            "type": "t_bool",
+            "src": "@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol:39"
+          },
+          {
+            "contract": "Initializable",
+            "label": "_initializing",
+            "type": "t_bool",
+            "src": "@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol:44"
+          },
+          {
+            "contract": "ContextUpgradeable",
+            "label": "__gap",
+            "type": "t_array(t_uint256)50_storage",
+            "src": "@openzeppelin/contracts-upgradeable/utils/ContextUpgradeable.sol:36"
+          },
+          {
+            "contract": "OwnableUpgradeable",
+            "label": "_owner",
+            "type": "t_address",
+            "src": "@openzeppelin/contracts-upgradeable/access/OwnableUpgradeable.sol:22"
+          },
+          {
+            "contract": "OwnableUpgradeable",
+            "label": "__gap",
+            "type": "t_array(t_uint256)49_storage",
+            "src": "@openzeppelin/contracts-upgradeable/access/OwnableUpgradeable.sol:87"
+          },
+          {
+            "contract": "NFT2",
+            "label": "ippools",
+            "type": "t_mapping(t_address,t_uint256)",
+            "src": "contracts/NFT2.sol:33"
+          },
+          {
+            "contract": "NFT2",
+            "label": "licenser",
+            "type": "t_contract(ILicenser)3104",
+            "src": "contracts/NFT2.sol:34"
+          },
+          {
+            "contract": "NFT2",
+            "label": "appRegistry",
+            "type": "t_contract(AppRegistry)2298",
+            "src": "contracts/NFT2.sol:35"
+          },
+          {
+            "contract": "NFT2",
+            "label": "lens",
+            "type": "t_contract(Lens)3067",
+            "src": "contracts/NFT2.sol:36"
+          }
+        ],
+        "types": {
+          "t_mapping(t_address,t_uint256)": {
+            "label": "mapping(address => uint256)"
+          },
+          "t_address": {
+            "label": "address"
+          },
+          "t_uint256": {
+            "label": "uint256"
+          },
+          "t_contract(ILicenser)3104": {
+            "label": "contract ILicenser"
+          },
+          "t_contract(AppRegistry)2298": {
+            "label": "contract AppRegistry"
+          },
+          "t_contract(Lens)3067": {
+            "label": "contract Lens"
+          },
+          "t_array(t_uint256)49_storage": {
+            "label": "uint256[49]"
+          },
+          "t_array(t_uint256)50_storage": {
+            "label": "uint256[50]"
+          },
+          "t_bool": {
+            "label": "bool"
+          }
+        }
+      }
+    },
+    "6f09a1c15f0d95f8ce9c5d1a28b9c5f40d8bb2487e229eb1c128555053affdd8": {
+      "address": "0x9baED84dE3B7764ee853C198EC4613112b0F671E",
+      "txHash": "0xe123b161ce9a8cca16d3daa34cb8f589e8fae6e012a9c77e032541df2418ca0a",
+      "layout": {
+        "storage": [
+          {
+            "contract": "Initializable",
+            "label": "_initialized",
+            "type": "t_bool",
+            "src": "@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol:39"
+          },
+          {
+            "contract": "Initializable",
+            "label": "_initializing",
+            "type": "t_bool",
+            "src": "@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol:44"
+          },
+          {
+            "contract": "ContextUpgradeable",
+            "label": "__gap",
+            "type": "t_array(t_uint256)50_storage",
+            "src": "@openzeppelin/contracts-upgradeable/utils/ContextUpgradeable.sol:36"
+          },
+          {
+            "contract": "OwnableUpgradeable",
+            "label": "_owner",
+            "type": "t_address",
+            "src": "@openzeppelin/contracts-upgradeable/access/OwnableUpgradeable.sol:22"
+          },
+          {
+            "contract": "OwnableUpgradeable",
+            "label": "__gap",
+            "type": "t_array(t_uint256)49_storage",
+            "src": "@openzeppelin/contracts-upgradeable/access/OwnableUpgradeable.sol:87"
+          },
+          {
+            "contract": "Lens",
+            "label": "orignal",
+            "type": "t_mapping(t_address,t_mapping(t_uint256,t_struct(Token)2915_storage))",
+            "src": "contracts/Lens.sol:11"
+          },
+          {
+            "contract": "Lens",
+            "label": "derivatives",
+            "type": "t_mapping(t_address,t_mapping(t_uint256,t_array(t_struct(Token)2915_storage)dyn_storage))",
+            "src": "contracts/Lens.sol:12"
+          },
+          {
+            "contract": "Lens",
+            "label": "NFT2",
+            "type": "t_address",
+            "src": "contracts/Lens.sol:13"
+          }
+        ],
+        "types": {
+          "t_mapping(t_address,t_mapping(t_uint256,t_struct(Token)2915_storage))": {
+            "label": "mapping(address => mapping(uint256 => struct Lens.Token))"
+          },
+          "t_address": {
+            "label": "address"
+          },
+          "t_mapping(t_uint256,t_struct(Token)2915_storage)": {
+            "label": "mapping(uint256 => struct Lens.Token)"
+          },
+          "t_uint256": {
+            "label": "uint256"
+          },
+          "t_struct(Token)2915_storage": {
+            "label": "struct Lens.Token",
+            "members": [
+              {
+                "label": "token",
+                "type": "t_address"
+              },
+              {
+                "label": "tokenId",
+                "type": "t_uint256"
+              }
+            ]
+          },
+          "t_mapping(t_address,t_mapping(t_uint256,t_array(t_struct(Token)2915_storage)dyn_storage))": {
+            "label": "mapping(address => mapping(uint256 => struct Lens.Token[]))"
+          },
+          "t_mapping(t_uint256,t_array(t_struct(Token)2915_storage)dyn_storage)": {
+            "label": "mapping(uint256 => struct Lens.Token[])"
+          },
+          "t_array(t_struct(Token)2915_storage)dyn_storage": {
+            "label": "struct Lens.Token[]"
           },
           "t_array(t_uint256)49_storage": {
             "label": "uint256[49]"

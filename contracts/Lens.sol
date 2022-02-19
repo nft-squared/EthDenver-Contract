@@ -22,6 +22,10 @@ contract Lens is OwnableUpgradeable {
         _;
     }
 
+    function getDerivativesCountByIP(address token, uint256 tokenId) external view returns(uint256){
+        return derivatives[token][tokenId].length;
+    }
+
     function getDerivativesByIP(address token, uint256 tokenId) external view returns(Token[] memory){
         return derivatives[token][tokenId];
     }

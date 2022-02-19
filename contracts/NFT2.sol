@@ -33,11 +33,16 @@ contract NFT2 is OwnableUpgradeable {
     mapping(address => uint256) public ippools; // ippool => chainId
     ILicenser public licenser;
     AppRegistry public appRegistry;
+    Lens public lens;
 
     function initialize(AppRegistry _appRegistry, ILicenser _licenser) external initializer {
         OwnableUpgradeable.__Ownable_init();
         licenser = _licenser;
         appRegistry = _appRegistry;
+    }
+
+    function setLens(Lens _lens) external onlyOwner {
+        lens = _lens;
     }
 
     function addIPPools(IPPool[] calldata _ippools) external onlyOwner {
@@ -103,7 +108,7 @@ contract NFT2 is OwnableUpgradeable {
             derivativeTokenId,
             msg.sender
         );
-        Lens(0x0fBb0592370A0df11B9B05d81468003A8351fe43).mint(address(ippool), token, tokenId, realOwner, address(licenser), licenseId, address(app), derivativeTokenId, msg.sender);
+        lens.mint(address(ippool), token, tokenId, realOwner, address(licenser), licenseId, address(app), derivativeTokenId, msg.sender);
         emit Mint(
             address(ippool),
             token,

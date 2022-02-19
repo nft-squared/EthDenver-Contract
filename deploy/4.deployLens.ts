@@ -9,6 +9,7 @@ const func = async function (hre:HardhatRuntimeEnvironment) {
   console.log(deployAcc);
   const app = new App();
   await app.deployLens();
+  await app.NFT2.setLens(app.Lens.address)
 };
 
 export default func;

@@ -92,7 +92,7 @@ export class App {
     }
 
     async deployAll() {
-        await this.deployIPPoolLocal()
+        //await this.deployIPPoolLocal()
         await this.deployAppRegistry()
         await this.deployLicenser()
         await this.deployNFT2()

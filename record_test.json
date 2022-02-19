@@ -2,32 +2,22 @@
     "1666700000": {
         "__NAME__": "hmy_test",
         "__MAPPING__": {
-            "MockERC721": {
-                "BAYC": "MockERC721",
-                "MAYC": "MockERC721"
-            },
-            "IPPoolLocal": "IPPoolLocal",
             "AppRegistry": "AppRegistry",
             "Licenser": "Licenser",
             "NFT2": "NFT2",
             "IPPoolShadows": {
-                "1": "IPPoolShadow"
+                "4": "IPPoolShadow"
             },
             "APPDemo": "APPDemo",
             "Lens": "Lens"
         },
-        "MockERC721": {
-            "BAYC": "0x4fdb26ba8B8A5Fa725741C24Be7C50d1a9f389cd",
-            "MAYC": "0x0f885C2aE7dd41B7C9F13ceCfc0deA000DA12B9f"
-        },
-        "IPPoolLocal": "0xB97c6Dc34518Bc6c44BDdE6Cc6d1935d7F896f5c",
-        "AppRegistry": "0xafe361b1C501F6288de1C622ef1C1dE7011DccA0",
-        "Licenser": "0x4A347177732Bd64E140c35B35B856fD7f14EBe36",
-        "NFT2": "0x6323469249e3Fa1901F0B3649fF689EE1787Ff96",
+        "AppRegistry": "0x1b67D1A96fA791B8f4Fa65003f1CA03A79227204",
+        "Licenser": "0x88a53AAA422ae6F404420C76a538c454b7CC1888",
+        "NFT2": "0xC4E441575f3Cb4645CFA08E6C2c4ecd1894Af516",
         "IPPoolShadows": {
-            "1": "0xD4de7bcC0b8Ceb1942F1e4C75176E3D541E9aF97"
+            "4": "0x52AF543cEE279B83e431B166609d3b242E2cB168"
         },
-        "APPDemo": "0xF8ADA725f9006c5dDb5378447aBf45814F715766",
-        "Lens": "0x0fBb0592370A0df11B9B05d81468003A8351fe43"
+        "APPDemo": "0xBBD001238dfc8A2daD2315Dd868c3ae8EFaCD167",
+        "Lens": "0xd1A0700931D248841204f21e528Ed540f04C7879"
     }
 }
