@@ -13,7 +13,8 @@
             "IPPoolShadows": {
                 "1": "IPPoolShadow"
             },
-            "APPDemo": "APPDemo"
+            "APPDemo": "APPDemo",
+            "Lens": "Lens"
         },
         "MockERC721": {
             "BAYC": "0x4fdb26ba8B8A5Fa725741C24Be7C50d1a9f389cd",
@@ -26,6 +27,7 @@
         "IPPoolShadows": {
             "1": "0xD4de7bcC0b8Ceb1942F1e4C75176E3D541E9aF97"
         },
-        "APPDemo": "0xF8ADA725f9006c5dDb5378447aBf45814F715766"
+        "APPDemo": "0xF8ADA725f9006c5dDb5378447aBf45814F715766",
+        "Lens": "0x0fBb0592370A0df11B9B05d81468003A8351fe43"
     }
 }

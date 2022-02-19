@@ -12,6 +12,8 @@ import {
     NFT2__factory,
     AppRegistry__factory,
     MockERC721__factory,
+    Lens,
+    Lens__factory,
 } from "../typechain";
 
 import {
@@ -32,6 +34,7 @@ export class App {
     Licenser!:Licenser
     AppRegistry!:AppRegistry
     NFT2!:NFT2
+    Lens!:Lens
 
     constructor() {
         const hre = require("hardhat");
@@ -50,6 +53,10 @@ export class App {
 
     async deployAPPDemo() {
         this.APPDemo = await deployProxyF(APPDemo__factory, [this.NFT2.address])
+    }
+
+    async deployLens() {
+        this.Lens = await deployProxyF(Lens__factory, [this.NFT2.address])
     }
 
     async deployIPPoolLocal() {

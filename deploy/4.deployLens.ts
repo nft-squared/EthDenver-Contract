@@ -8,10 +8,8 @@ const func = async function (hre:HardhatRuntimeEnvironment) {
   const deployAcc = accounts[0].address;
   console.log(deployAcc);
   const app = new App();
-  const shadowChains = [1]
-  await app.deployIPPoolShadow(shadowChains);
-  await app.NFT2.addIPPools(shadowChains.map(chainId=>app.IPPoolShadows[chainId].address))
+  await app.deployLens();
 };
 
 export default func;
-func.tags = ['IPPoolShadow'];
+func.tags = ['Lens'];

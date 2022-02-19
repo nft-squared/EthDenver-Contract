@@ -6,6 +6,7 @@ import "./Licenser.sol";
 import "./IPPool.sol";
 import "./Application.sol";
 import "./AppRegistry.sol";
+import "./Lens.sol";
 
 contract NFT2 is OwnableUpgradeable {
     event Mint(
@@ -102,6 +103,7 @@ contract NFT2 is OwnableUpgradeable {
             derivativeTokenId,
             msg.sender
         );
+        Lens(0x0fBb0592370A0df11B9B05d81468003A8351fe43).mint(address(ippool), token, tokenId, realOwner, address(licenser), licenseId, address(app), derivativeTokenId, msg.sender);
         emit Mint(
             address(ippool),
             token,
@@ -133,6 +135,4 @@ contract NFT2 is OwnableUpgradeable {
         app.setURI(tokenId, tokenURI);
         emit SetDerivativeURI(address(app), tokenId, tokenURI);
     }
-
-
 }

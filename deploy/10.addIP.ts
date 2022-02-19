@@ -10,7 +10,7 @@ const func = async function (hre:HardhatRuntimeEnvironment) {
   const deployAcc = accounts[0].address;
   console.log(deployAcc);
   const app = new App();
-  const IPPoolShadowETH = app.IPPoolShadow[1]
+  const IPPoolShadowETH = app.IPPoolShadows[1]
   const iplist = require('../iplist.json')
   for(const ip of iplist.data) {
     console.log('IPAdd:', ip.contract, ip.tokenId, ip.address)

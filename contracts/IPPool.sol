@@ -47,8 +47,10 @@ abstract contract IPPool is OwnableUpgradeable {
         address owner
     ) internal {
         bytes32 key = ipKey(token, tokenId);
+        if(ips[key] == address(0)) {
+            iplist.push(IP(token, tokenId));
+        }
         ips[key] = owner;
-        iplist.push(IP(token, tokenId));
         emit IPAdded(token, tokenId, msg.sender, owner);
     }
 
